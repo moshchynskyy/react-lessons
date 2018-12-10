@@ -46,7 +46,7 @@
           font-size: 14px;
     }
 
-    .cross {
+    & .cross {
         content: '';
         position: absolute;
         top: 12px;
