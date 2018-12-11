@@ -2,8 +2,12 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 
+// Components
+import Catcher from './../../components/Catcher/';
 import { Provider } from './../../components/HOC/withProfile';
 import Feed from './../../components/Feed/index';
+
+// Instruments
 import avatar from 'theme/assets/lisa.png';
 
 
@@ -17,9 +21,11 @@ const options = {
 export default class App extends Component {
     render() {
         return (
-            <Provider value={ options } >
-                <Feed { ...options } />
-            </Provider>
+            <Catcher>
+                <Provider value={ options } >
+                    <Feed />
+                </Provider>
+            </Catcher>
         );
     }
 }
