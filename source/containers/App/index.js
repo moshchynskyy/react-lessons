@@ -8,13 +8,13 @@ import { Provider } from './../../components/HOC/withProfile';
 import Feed from './../../components/Feed/index';
 
 // Instruments
-import avatar from 'theme/assets/lisa.png';
+import avatar from './../../theme/assets/lisa.png';
 
 
 const options = {
     avatar,
-    currentUserFirstName: 'Lisa',
-    currentUserLastName: 'Simpson',
+    currentUserFirstName: 'Антон',
+    currentUserLastName: 'Мощинский',
 };
 
 @hot(module)
