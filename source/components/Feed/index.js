@@ -1,5 +1,7 @@
 // Core
 import React, {Component} from 'react';
+import { fromTo } from 'gsap'
+import { Transition, CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // Components
 import Catcher from './../../components/Catcher/';
@@ -8,6 +10,7 @@ import Composer from './../Composer';
 import Post from './../Post';
 import StatusBar from './../StatusBar';
 import Spinner from './../Spinner';
+import Postman from './../Postman';
 
 // Instruments
 import Styles from './styles.m.css';
@@ -26,7 +29,6 @@ export default class Feed extends Component {
         const { currentUserFirstName, currentUserLastName } = this.props;
 
         this._fetchPosts();
-
         socket.emit('join', GROUP_ID);
 
         socket.on('create', (postJSON) => {
@@ -140,18 +142,43 @@ export default class Feed extends Component {
 
     };
 
+    _animateComposerEnter = (composer) => {
+        fromTo(
+            composer,
+            1,
+            { opacity: 0, rotationX: 120 },
+            { opacity: 1, rotationX: 0 },
+        );
+    };
+
     render() {
         const {posts, isPostFetching} = this.state;
 
         const postsJSX = posts.map((post) => {
             return (
-                <Catcher key={post.id} >
-                    <Post
-                        {...post}
-                        _likePost = { this._likePost }
-                        _removePost = { this._removePost }
-                    />
-                </Catcher>
+                <CSSTransition
+                    classNames = {
+                        {
+                            enter: Styles.postInStart,
+                            exit: Styles.postInEnd,
+                        }
+                    }
+                    key = {post.id}
+                    timeout = {
+                        {
+                            enter: 500,
+                            exit: 400,
+                        }
+                    }
+                >
+                    <Catcher>
+                        <Post
+                            {...post}
+                            _likePost = { this._likePost }
+                            _removePost = { this._removePost }
+                        />
+                    </Catcher>
+                </CSSTransition>
             )
         });
 
@@ -159,8 +186,18 @@ export default class Feed extends Component {
             <section className={Styles.feed}>
                 <Spinner isPostFetching={isPostFetching}/>
                 <StatusBar/>
-                <Composer _createPost={this._createPost}/>
-                {postsJSX}
+                <Transition
+                    in
+                    appear
+                    timeout = { 4000 }
+                    onEnter = { this._animateComposerEnter }
+                >
+                    <Composer _createPost={this._createPost}/>
+                </Transition>
+                <Postman />
+                <TransitionGroup>
+                    {postsJSX}
+                </TransitionGroup>
             </section>
         );
     }
