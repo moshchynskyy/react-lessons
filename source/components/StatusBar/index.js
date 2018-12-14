@@ -11,6 +11,7 @@ import { withProfile } from "../HOC/withProfile";
 import Styles from './styles.m.css';
 import { socket } from './../../socket/init';
 
+
 @withProfile
 export default class StatusBar extends Component {
     state = {

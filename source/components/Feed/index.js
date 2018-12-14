@@ -160,14 +160,16 @@ export default class Feed extends Component {
                     classNames = {
                         {
                             enter: Styles.postInStart,
-                            exit: Styles.postInEnd,
+                            enterActive: Styles.postInEnd,
+                            exit: Styles.postOutStart,
+                            exitActive: Styles.postOutEnd,
                         }
                     }
                     key = {post.id}
                     timeout = {
                         {
                             enter: 500,
-                            exit: 400,
+                            exit: 700,
                         }
                     }
                 >
@@ -195,9 +197,7 @@ export default class Feed extends Component {
                     <Composer _createPost={this._createPost}/>
                 </Transition>
                 <Postman />
-                <TransitionGroup>
-                    {postsJSX}
-                </TransitionGroup>
+                <TransitionGroup>{postsJSX}</TransitionGroup>
             </section>
         );
     }
