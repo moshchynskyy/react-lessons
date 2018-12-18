@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Counter must render ... 1`] = `
+<section
+  className="counter"
+>
+  Posts: 
+  3
+</section>
+`;
+
+exports[`Counter should correspond to its snapshot counterpart 1... 1`] = `
+<section
+  className="counter"
+>
+  Posts: 
+  3
+</section>
+`;

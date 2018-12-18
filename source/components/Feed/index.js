@@ -11,6 +11,7 @@ import Post from './../Post';
 import StatusBar from './../StatusBar';
 import Spinner from './../Spinner';
 import Postman from './../Postman';
+import Counter from './../Counter';
 
 // Instruments
 import Styles from './styles.m.css';
@@ -197,6 +198,7 @@ export default class Feed extends Component {
                     <Composer _createPost={this._createPost}/>
                 </Transition>
                 <Postman />
+                <Counter count = { postsJSX.length } />
                 <TransitionGroup>{postsJSX}</TransitionGroup>
             </section>
         );

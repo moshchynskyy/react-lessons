@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`instruments sum should return sum of 2 args 1`] = `9`;
+
+exports[`test for instruments sum should return sum of 2 args 1`] = `9`;
