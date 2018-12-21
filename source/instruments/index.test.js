@@ -23,7 +23,7 @@ describe('test for instruments', () => {
     });
 
     test('delay should return a resolved promise', async () => {
-        await expect(delay()).resolves.toBe('A resolved promise :)');
+        await expect(delay(1)).resolves.toBe('A resolved promise :)');
     });
 
     test('GetUniqueID must be a function', () => {

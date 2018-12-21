@@ -1,4 +1,4 @@
-/* Setup testing framework module.
+ /* Setup testing framework module.
 **
 ** This module will be executed before each test.
 **
