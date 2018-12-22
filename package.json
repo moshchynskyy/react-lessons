@@ -13,7 +13,7 @@
         "analyze": "webpack-bundle-analyzer \"./build/build-stats.json\" build",
         "lint": "run-s lint:javascript lint:css",
         "lint:javascript": "jest --projects \"./scripts/jest/jest.eslint.config.js\"",
-        "lint:css": "jest --projects \"./scripts/jest/jest.stylelint.config.js\"",
+        "lint:css": " t --projects \"./scripts/jest/jest.stylelint.config.js\"",
         "test": "cross-env-shell NODE_ENV=test jest --config=\"./scripts/jest/jest.test.config.js\"",
         "test:watch": "npm test -- --watch",
         "test:debug": "node --inspect-brk \"./node_modules/.bin/jest\" --runInBand --config=\"./scripts/jest/jest.test.config.js\"",
